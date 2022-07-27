@@ -43,6 +43,7 @@ jobs:
               action: deploy
               manifests: |
                  deployment.yaml
+                 hpa.yaml
               images: |
                  manjudhub/k8sdemo:${{ github.sha }}
               imagepullsecrets: |
