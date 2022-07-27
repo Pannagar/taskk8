@@ -15,17 +15,21 @@ jobs:
               docker build . -t manjudhub/k8sdemo:${{ github.sha }}
               docker push manjudhub/k8sdemo:${{ github.sha }}
               
-         - uses: azure/login@v1
+         - uses: Azure/k8s-set-context@v2
            with:
-              creds: ${{ secrets.AZURE_CREDENTIALS }}
+              kubeconfig: ${{ secrets.KUBE_CONFIG }}
+              
+#          - uses: azure/login@v1
+#            with:
+#               creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-         - uses: azure/setup-kubectl@v2.0
+#          - uses: azure/setup-kubectl@v2.0
 
-         # Set the target AKS cluster.
-         - uses: Azure/aks-set-context@v1
-           with:
-              cluster-name: task-1
-              resource-group: task
+#          # Set the target AKS cluster.
+#          - uses: Azure/aks-set-context@v1
+#            with:
+#               cluster-name: task-1
+#               resource-group: task
 
          - uses: Azure/k8s-create-secret@v1.1
            with:
