@@ -42,7 +42,7 @@ jobs:
            with:
               action: deploy
               manifests: |
-                 ./deployment.yml
+                 deployment.yml
                  #manifests/service.yml
               images: |
                  manjudhub/k8sdemo:${{ github.sha }}
