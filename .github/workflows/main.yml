@@ -13,8 +13,8 @@ jobs:
               password: ${{ secrets.REGISTRY_PASSWORD }}
 
          - run: |
-              docker build . -t manjudhub/k8sdemo:${{ github.sha }}
-              docker push manjudhub/k8sdemo:${{ github.sha }}
+              docker build . -t manjudhub/k8sdemo:${{ github.sha }} --no-cache
+              docker push manjudhub/k8sdemo:${{ github.sha }} 
               
          - uses: Azure/k8s-set-context@v2
            with:
